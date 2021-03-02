@@ -1,38 +1,19 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
-import HomePage from './pages/homepage/homepage.component.jsx';
 
-const TopicList = (props) => {
-  console.log(props.path);
-  return(
-    <div>
-      <h1>TOPIC LIST PAGE</h1>
-    </div>
-  )
-};
-
-const TopicDetail = () => (
-  <div>
-    <h1>TOPIC DETAIL</h1>
-  </div>
-);
-
-const HatsPage = () => (
-  <div>
-    <h1>HATS PAGE</h1>
-  </div>
-);
+import HomePage from './pages/homepage/homepage.component';
+import ShopPage from './pages/shop/shop.component';
 
 function App() {
   return (
-      <div>
+    <div>
+      <Switch>
         <Route exact path='/' component={HomePage} />
-        <Route path='/hats' component={HatsPage} />
-        <Route exact path='/topics' component={TopicList} />
-        <Route path='/topics/:topicId' component={TopicDetail} />
-      </div>
+        <Route path='/shop' component={ShopPage} />
+      </Switch>
+    </div>
   );
 }
 
